@@ -4,12 +4,13 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 7777;
-const FOODS_FILE = path.join(__dirname, "public", "foods.json");
+const FOODS_FILE = path.join(__dirname, "foods.json");
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+// Serve all static files directly from the root directory
+app.use(express.static(__dirname));
 
-// POST endpoint to append a new food directly into foods.json
+// POST endpoint to append a new food directly into foods.json at the root
 app.post("/api/foods", (req, res) => {
   const newFood = req.body;
 
@@ -42,9 +43,9 @@ app.post("/api/foods", (req, res) => {
   });
 });
 
-// Explicit root route to serve index.html on Render
+// Explicit root route to serve index.html from the root directory
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(PORT, () => {
