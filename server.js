@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const PORT = 7777;
+const PORT = process.env.PORT || 7777;
 const FOODS_FILE = path.join(__dirname, "public", "foods.json");
 
 app.use(express.json());
@@ -42,6 +42,11 @@ app.post("/api/foods", (req, res) => {
   });
 });
 
+// Explicit root route to serve index.html on Render
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
