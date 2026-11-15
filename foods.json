@@ -821,17 +821,18 @@
         },
         "tags": ["meat", "protein"]
     },
-    {
+   {
         "id": "eggs-whole-raw",
         "name": "Whole Eggs (Raw)",
-        "nutrition-per-100g": {
-            "energy": 598,
-            "protein": 12.6,
-            "fat": 9.5,
-            "saturated-fat": 3.1,
-            "carbohydrate": 0.7,
-            "sugars": 0.4,
-            "sodium": 142
+        "unit": "1 large egg (approx. 50g edible)",
+        "nutrition-per-unit": {
+            "energy": 72,
+            "protein": 6.3,
+            "fat": 4.8,
+            "saturated-fat": 1.6,
+            "carbohydrate": 0.4,
+            "sugars": 0.2,
+            "sodium": 71
         },
         "tags": ["dairy", "protein"]
     },
